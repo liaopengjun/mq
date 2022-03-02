@@ -7,8 +7,16 @@ import (
 
 func Task(c *gin.Context) {
 	s := "msg"
-	for i := 0; i < 4; i++ {
+	for i := 0; i < 1; i++ {
+		s = s + "........."
+		mq.SendWork(s)
+	}
+}
+
+func CalculateWork(c *gin.Context) {
+	s := "msg"
+	for i := 0; i < 10; i++ {
 		s = s + "."
-		mq.SendHelloWorld(s)
+		mq.SendCalculatework(s)
 	}
 }
